@@ -4,6 +4,7 @@ module ApiTaster
     self.routes = []
 
     def self.collect(path)
+      self.routes = []
       Dir["#{path}/**/*.rb"].each { |file| load(file) }
 
       Route.mappings = Proc.new do
@@ -12,3 +13,4 @@ module ApiTaster
     end
   end
 end
+
